@@ -49,6 +49,46 @@ public class HandOfCards extends DeckOfChards{
         return hand.stream().allMatch(card -> card.getType().equals(hand.get(0).getType()));
     }
 
+    public int getSum() {
+        int sum = 0;
+        for(PlayingCard card : hand) {
+            sum+=card.getNumber();
+        }
+        return sum;
+    }
+
+    public String checkForHeart() {
+        String result = "";
+        for(PlayingCard card : hand) {
+            if(card.getType().equals("H")) {
+                result += card + ", ";
+            }
+        }
+        if(result.equals("")) {
+            return "No Hearts in hand";
+        }
+        return "Hearts found: " + result;
+    }
+
+    public boolean checkForSpadeQueen() {
+        return hand.stream().anyMatch(card -> card.toString().equals("S12"));
+    }
+
+    public String checkHand() {
+        String result = "The total sum of cards are: " + getSum() + "\n";
+        if(checkForFlush()) {
+            result += "YOU HAVE A FLUSH!!!!\n";
+        }
+        if(checkForSpadeQueen()) {
+            result += "You the Qeen of Spade in your hand!\n";
+        }
+        if(!checkForSpadeQueen()) {
+            result += "You do not have the Qeen of Spade in your hand!\n";
+        }
+        result += checkForHeart();
+        return result;
+    }
+
     public ArrayList<PlayingCard> getHand() {
         return hand;
     }
