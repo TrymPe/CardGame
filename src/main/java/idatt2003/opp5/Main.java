@@ -19,6 +19,12 @@ public class Main extends Application{
         launch(args);
     }
 
+    /**
+     *  Creates the start data
+     *  Deck and hand.
+     * 
+     * @return Hand array
+     */
     public ArrayList<PlayingCard> startData() {
         HandOfCards hand = new HandOfCards("",0);
 
@@ -33,6 +39,11 @@ public class Main extends Application{
         return hand.getHand();
     }
     
+    /**
+     *  Access to all the check methods.
+     * 
+     * @return Result String
+     */
     public String checkHand() {
         HandOfCards hand = new HandOfCards("", 0);
         return hand.checkHand();

@@ -10,7 +10,9 @@ public class HandOfCards extends DeckOfChards{
     public HandOfCards(String type, int number) {
             super(type, number);
     }
-    
+    /**
+     *  Creates Playing card objedcts and adds them to array.
+     */
     public void createHand() {
         hand.clear();
         while (hand.size() < 5) {
@@ -19,9 +21,13 @@ public class HandOfCards extends DeckOfChards{
                 hand.add(newCard);
             }
         }
-        
     }
 
+    /**
+     *  Collects a random Playing card object.
+     * 
+     * @return If find object, if not null
+     */
     public PlayingCard getRandomCard() {
         int number = (int)(Math.random()*13) +1;
         int type = (int)(Math.random()*4);
@@ -38,6 +44,9 @@ public class HandOfCards extends DeckOfChards{
         return null;
     }
 
+    /**
+     * Prints all the cards in hand.
+     */
     public void printHand() {
         for(PlayingCard card : hand) {
             System.out.println(card);
@@ -45,10 +54,20 @@ public class HandOfCards extends DeckOfChards{
 
     }
 
+    /**
+     *  Checks if all the cards in hand is of same type.
+     * 
+     * @return true if all match, false if not
+     */
     public static boolean checkForFlush() {
         return hand.stream().allMatch(card -> card.getType().equals(hand.get(0).getType()));
     }
 
+    /**
+     *  Claculate the sum of hand.
+     * 
+     * @return sum int
+     */
     public int getSum() {
         int sum = 0;
         for(PlayingCard card : hand) {
@@ -57,6 +76,11 @@ public class HandOfCards extends DeckOfChards{
         return sum;
     }
 
+    /**
+     *  Checks if the hand contains type Heart.
+     * 
+     * @return result String
+     */
     public String checkForHeart() {
         String result = "";
         for(PlayingCard card : hand) {
@@ -70,10 +94,20 @@ public class HandOfCards extends DeckOfChards{
         return "Hearts found: " + result;
     }
 
+    /**
+     *  Checks if qeen of sapdes is in hand.
+     * 
+     * @return true if found, false if not
+     */
     public boolean checkForSpadeQueen() {
         return hand.stream().anyMatch(card -> card.toString().equals("S12"));
     }
 
+    /**
+     *  Collects all the check methods.
+     * 
+     * @return Result String
+     */
     public String checkHand() {
         String result = "The total sum of cards are: " + getSum() + "\n";
         if(checkForFlush()) {
@@ -89,6 +123,11 @@ public class HandOfCards extends DeckOfChards{
         return result;
     }
 
+    /**
+     *  Returns the hand Array
+     * 
+     * @return Array card collection
+     */
     public ArrayList<PlayingCard> getHand() {
         return hand;
     }

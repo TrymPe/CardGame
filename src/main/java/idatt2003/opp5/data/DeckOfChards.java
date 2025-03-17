@@ -75,6 +75,11 @@ public class DeckOfChards extends PlayingCard{
         }
     }
 
+    /**
+     *  Access to the deck of cards.
+     * 
+     * @return Hashmap of cards
+     */
     public HashMap<String,ArrayList<PlayingCard>> getDeck() {
         return this.deckOfCards;
     }
