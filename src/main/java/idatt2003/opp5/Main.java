@@ -30,11 +30,14 @@ public class Main extends Application{
 
         hand.createDeck();
         hand.createHand();
-        /* 
+
+       /* 
+        //Uncomment this to check for only flush result
         while (!hand.checkForFlush()) {
             hand.createHand();   
         }
         */
+        
         hand.printHand();
         return hand.getHand();
     }
@@ -128,7 +131,7 @@ public class Main extends Application{
         root.getChildren().addAll(barView, piller1, piller2, button, button2, dealerView, card1View, card2View, card3View, card4View, card5View, label);
 
         stage.setTitle("Cool Card Game :)");
-        stage.setFullScreen(false);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

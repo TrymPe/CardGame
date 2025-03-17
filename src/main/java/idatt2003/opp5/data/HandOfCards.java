@@ -48,10 +48,10 @@ public class HandOfCards extends DeckOfChards{
      * Prints all the cards in hand.
      */
     public void printHand() {
+        System.out.println("Hand: ");
         for(PlayingCard card : hand) {
             System.out.println(card);
         }
-
     }
 
     /**
@@ -114,7 +114,7 @@ public class HandOfCards extends DeckOfChards{
             result += "YOU HAVE A FLUSH!!!!\n";
         }
         if(checkForSpadeQueen()) {
-            result += "You the Qeen of Spade in your hand!\n";
+            result += "You have the Qeen of Spade in your hand!\n";
         }
         if(!checkForSpadeQueen()) {
             result += "You do not have the Qeen of Spade in your hand!\n";
