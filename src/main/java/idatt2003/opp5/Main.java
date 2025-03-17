@@ -99,15 +99,19 @@ public class Main extends Application{
 
             Button button = new Button("New Hand");
             button.setLayoutX(800);
-            button.setLayoutY(200);
+            button.setLayoutY(50);
             button.setOnAction(e -> startData());
             button.setOnAction(e -> start(stage));
-        
+
+            Button button2 = new Button("Check hand");
+            button2.setLayoutX(800);
+            button2.setLayoutY(100);
+            
 
             
             Scene scene = new Scene(root, 1000,700, Color.LIGHTGREEN);
         
-            root.getChildren().addAll(label, barView, piller1, piller2, button, dealerView, card1View, card2View, card3View, card4View, card5View);
+            root.getChildren().addAll(label, barView, piller1, piller2, button, button2, dealerView, card1View, card2View, card3View, card4View, card5View);
 
             stage.setTitle("Cool Card Game :)");
             stage.setFullScreen(false);
