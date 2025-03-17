@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.layout.Pane;
 import javafx.scene.image.Image;
@@ -24,11 +26,11 @@ public class Main extends Application{
 
         hand.createDeck();
         hand.createHand();
-    
+        /* 
         while (!hand.checkForFlush()) {
             hand.createHand();   
         }
-
+        */
         hand.printHand();
         return hand.getHand();
     }
@@ -43,6 +45,7 @@ public class Main extends Application{
             card1View.setFitHeight(150);
             card1View.setFitWidth(100);
             card1View.setLayoutX(100);
+            card1View.setLayoutY(400);
 
             String image2 = (hand.get(1) + ".png");
             Image card2 = new Image(getClass().getResource("imag/" + image2).toExternalForm());
@@ -50,6 +53,7 @@ public class Main extends Application{
             card2View.setFitHeight(150);
             card2View.setFitWidth(100);
             card2View.setLayoutX(200);
+            card2View.setLayoutY(400);
 
             String image3 = (hand.get(2) + ".png");
             Image card3 = new Image(getClass().getResource("imag/" + image3).toExternalForm());
@@ -57,6 +61,7 @@ public class Main extends Application{
             card3View.setFitHeight(150);
             card3View.setFitWidth(100);
             card3View.setLayoutX(300);
+            card3View.setLayoutY(400);
 
             String image4 = (hand.get(3) + ".png");
             Image card4 = new Image(getClass().getResource("imag/" + image4).toExternalForm());
@@ -64,6 +69,7 @@ public class Main extends Application{
             card4View.setFitHeight(150);
             card4View.setFitWidth(100);
             card4View.setLayoutX(400);
+            card4View.setLayoutY(400);
 
             String image5 = (hand.get(4) + ".png");
             Image card5 = new Image(getClass().getResource("imag/" + image5).toExternalForm());
@@ -71,20 +77,37 @@ public class Main extends Application{
             card5View.setFitHeight(150);
             card5View.setFitWidth(100);
             card5View.setLayoutX(500);
+            card5View.setLayoutY(400);
+
+            Image dealer = new Image(getClass().getResource("imag/lugi.png").toExternalForm());
+            ImageView dealerView = new ImageView(dealer);
+            dealerView.setLayoutX(-50);
+
+            Image bar = new Image(getClass().getResource("imag/bar.jpg").toExternalForm());
+            ImageView barView = new ImageView(bar);
+            barView .setLayoutX(40);
+
+            Rectangle piller1 = new Rectangle(0,0,50,700);
+            piller1.setFill(Color.DARKGREY);
+
+            Rectangle piller2 = new Rectangle(650,0,500,700);
+            piller2.setFill(Color.DARKGREY);
 
             Label label = new Label("Hello");
             Pane root = new Pane();
-            Button button = new Button("B-For Button");
-            button.setLayoutX(1000);
+            root.setBackground(null);
+
+            Button button = new Button("New Hand");
+            button.setLayoutX(800);
             button.setLayoutY(200);
             button.setOnAction(e -> startData());
             button.setOnAction(e -> start(stage));
         
 
             
-            Scene scene = new Scene(root, 1200,800);
+            Scene scene = new Scene(root, 1000,700, Color.LIGHTGREEN);
         
-            root.getChildren().addAll(label, button, card1View, card2View, card3View, card4View, card5View);
+            root.getChildren().addAll(label, barView, piller1, piller2, button, dealerView, card1View, card2View, card3View, card4View, card5View);
 
             stage.setTitle("Cool Card Game :)");
             stage.setFullScreen(false);
