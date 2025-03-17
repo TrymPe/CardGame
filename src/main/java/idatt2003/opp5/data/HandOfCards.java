@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class HandOfCards extends DeckOfChards{
     
-    private ArrayList<PlayingCard> hand = new ArrayList<>();
+    private static ArrayList<PlayingCard> hand = new ArrayList<>();
 
     public HandOfCards(String type, int number) {
             super(type, number);
@@ -45,11 +45,11 @@ public class HandOfCards extends DeckOfChards{
 
     }
 
-    public boolean checkForFlush() {
+    public static boolean checkForFlush() {
         return hand.stream().allMatch(card -> card.getType().equals(hand.get(0).getType()));
     }
 
     public ArrayList<PlayingCard> getHand() {
-        return this.hand;
+        return hand;
     }
 }
